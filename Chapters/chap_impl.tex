@@ -1,0 +1,116 @@
+\chapter{Design and Implmentation}
+\label{chap_design}
+
+Implementation 
+
+\section{Considerations}:
+
+Given that This is How caters makers and hackers, the technology stack it employs should respect their values of openness and transparency. As such, it must be coherent, extensible and modifiable.
+ 
+This is How will be developed as an open source project. The source code will be available at all stages of development, not just on release, and allow for community contributions. It must utilize open standards, these are governed by transparent standard committees and are royalty free. 
+
+This is How must allow for rapid iterative development. This means using programming languages, libraries and frameworks that value productivity over any other consideration. This also derives extensibility, it must allow for simple integration and composition of third-party open source packages. 
+
+This is How must be familiar. While it is sometimes tempting to use niche programming languages and technologies, these interfere with the ease of community contribution. I prefer technologies with a proven track record and wide adoption rates.
+
+\section{Details}
+
+This is How is developed under the MIT open source license. It is version controlled with the open source GIT /cite{git} version control system and hosted on Github/cite{github} which also tracks bug reports. 
+
+This is How is developed as a web application with three major components: server, client and storage. Both the client and server utilize Javascript as their main programming language. Ther server side uses Node.js, a widely adopted Javascript runtime engine. NPM/cite{}, the most popular Javascript package manager, is used both as a dependency manager and a build system. The server also uses super-glue, described later in this chapter, for video metadata extraction.
+
+ReactJS is The main framework used on the Client side is. React provides a component based, efficient rendering engine and as of writing, is the fastest growing web framework /cite{}. As with the server, NPM manages dependencies although the build process is managed by Webpack /cite{webpack}. For video playback we use the HTML5 <video> tag and for video encoding, the open VP8/cite{} codec. 
+
+Collaborative document editing is done with Etherpad/cite{ehterpad}. Etherpad is a collaborative document editor that was launched in 2008 and released as opensource after being acquired by Google in 2009. It has been in development ever since and is extremely flexible. It can work with a variety of datastores, has built in chat and can be easily embedded into other websites.
+
+Storage is divided into structured and unstructured data. The Structured data includes all conversation and metadata while unstructured data refers to the video files. For structured data we use CouchDB/cite{}, a simple document driven database which allows for real time synchronization between the different clients and the server.  Video files are stored in a simple local file server but can easily plug into 3rd party services such as AWS S3 or Google Cloud Storage.
+
+The Webapp is currently stored on Heroku, A popular platform-as-a-service that makes it dead simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it simple to migrate to other services or dedicated hardware. 
+
+
+\section{User Experience Considerations} 
+
+\begin{quotation}
+``A user interface is like a joke, If you have to explain it, it's not that good.''
+\end{quotation}
+
+The user experience of This is How is based on the three-step process outlined in the previous chapter: discovery, interactive exposition and collaborative Brainstorming. It must be intuitive and rely mostly on common interaction patterns that users are already accustomed to. When introducing novel ideas they must be as self explanatory as possible. 
+
+\subsection{User Experience Overview}
+
+In this section I present the major concepts of the User Experience and overview the experience on a page by page basis. For each of these pages I present the purpose and an overview of the different components. 
+
+\subsection{Main Concepts}
+
+These concepts are used throughout the user experience. Concepts that are local to a specific portion of the experience will be covered in the relevant section.
+
+Users are either participants or organizations seeking help. This is How does not differentiate between the populations thus allowing them to interchange.
+Stories are the main entity of the system. Each Story has a main video that describes a process and challenges. Stories also encompass the different collaboration concepts that will be described later.
+Tags are terms that represent metadata stories. Each story contains one or more tags. Tags can be manually entered or auto extracted using super glue. 
+
+\subsection{Main Page}
+
+% figure: Main Component. 
+
+The main page serves as an entry page for the system. It allows for browsing stories and filtering by tags. All stories are presented, sorted by the time of their addition on a descending order. These stories are represented as thumbnails with some basic data about the story - title and tags. Clicking on the thumbnail will lead to the story page. In later versions, these stories will be sorted by their level of activity, indicated by volume of recent activity and publication date. 
+
+The main page also allows for filtering. A set of common tags is provided, by clicking on a tag, only the stories with a matching tag will be shown. The first story thumbnail is the add button - Hinting that the user can have their story on this page. Clicking it leads to the Add Story Page
+
+\subsection{Add Story Page}
+
+% figure: Add Story
+
+The Add Story page provides the necessary mechanism for adding a story: uploading a video and providing the necessary details.Video can be uploaded either by clicking on the video area and selecting a file, dropping a video file in it or recording an on-the-fly video, using an attached webcam, by clicking on the \textit{Record} button. Additional data: title, location, description and an initial set of tags, are also required. Clicking the \textit{Publish Now} Button will finalize the process and take the user to their dashboard page. 
+
+\subsection{Dashboard Page}
+
+% figure: Dashboard Page
+
+The Dashboard Page is unique per user and presents a collection of all of their published stories. These are shown as story thumbnails, similar to the ones in the main page. Clicking on any story leads to it's story page. 
+Story Page
+
+% figure: Story Page
+
+The Story page is the main tool for facilitating interactive exploration and brainstorming. It consists of two main components: the video component and the idea pad.
+
+\subsection{Video Player}
+
+The video player implements the hyper discussion layar I proposed in the previous chapter. It's basic playback functionality is similar to that of a traditional video player. A seek bar allows for seeking to specific parts in the video and includes a play/pause button and playback time indication.
+
+The video player also includes an always-visible comment input box. When typing a comment, the playback automatically pauses and resumes when the comment is submitted. The submitted comment will be timestamped with the current playback time. Comments appear during playback at their respective timestamp and disappear after a predecided number of seconds. These comments allow participants to contextually ask questions and drill down into the specifics of the story.  
+
+% Figure: Comment threads    
+
+Comments are collapsible into discussion threads. These threads provide a mechanism to other participants and the publisher of the story to explain, clarify and drill down into the story. These threads allow both textual and video replies for the sake of expressiveness. Videos replies can be either pre-recorded or recorded on the spot via a webcam. 
+
+% Figure: Seekbar
+
+All of the comments are indicated as semi-transparents blocks on the seek bar and on mouse hover will display the respective comment. With a glance, it is evident which areas of the video are active in terms of discussion and provides a seeking mechanism for the author and other participants.  
+\subsection{Idea Pad}
+
+% Figure: Idea Pad
+
+The idea pad accommodates brainstorming by allowing participants to suggest ideas. Initially, an idea is entered as an idea title. Rather than discussing these ideas as simple conversations, they collapse into collaborative documents which any user can share and help evolve. These documents also contains a discussion pane in order not to pollute the document with traditional conversation. 
+
+These ideas can be voted up and down by other participants, a common practice in Q\&A services/cite{stackoverflow}/cite{quora} that allows for the community to bubble up the worthy ideas.   
+
+\section{SuperGlue - MetaData extraction}
+SuperGlue is an automatic metadata extractor that works with all forms of media: video text and sound. It is a core project and an ongoing research effort at the Viral Communications group. It serves as basis for exploration of media and enables the next generation of media-centered application.
+
+SuperGlue is built as a modular, expandable system that forms an analysis pipeline. Media is submitted on one side of the pipe and at its end, a rich metadata document is generated and stored on a shared databases. The modules themselves range from face detection to transcription and natural language processing. Modules can declare dependencies on other modules. For example, the natural language keyword extraction module depends on the output of transcription module.
+
+While originally being designed for processing of news, as demonstrated in This is How, SuperGlue can handle various types of Media. For This is How, we utilize the keywords extracted from from transcript. From empirical testing, we've concluded these tend to have a high relevance score.    
+
+\subsection{SuperGlue Implementation}
+
+Superglue has 4 main components: an api server, a task queue, workers, and a datastore. 
+
+The API server is a simple webapp written in Python. It's job is to mediate between the application that use SuperGlue as well as receive submissions of new media items and placing them in the task queue. The task queue is implemented as a Redis database with one value: a simple ordered list of tasks. Each task represents one module that needs to run on one media item. These tasks are inserted either by the API server or the workers. 
+
+The Workers are the main work horse behind the system and are also implemented in Python. Modules are defined with python classes that adhere to a simple module api. As part of the definition, they can also declare dependencies on other modules. Whenever a worker is free, it polls the task queue for the next task. It then executes the relevant module on the relevant media item and stores the result in the database. Upon completion, it will detect which modules depend on the one that just completed, and will insert new tasks for all of them in the task queue. 
+
+% Figure: A fancy graph showing modules
+
+All the data is stored in a single collection in a MongoDB database. Each record in this collection represents a single media item and all the output that's been gathered from the various modules is stored in it. 
+
+This architecture results in an ability to successfully scale horizontally. Workers, which are the main units of computation, are stateless and as such can be added and removed without affecting the system. SuperGlue is currently processing 500 hours worth of video in a day using 20 workers running on virtual machines.
