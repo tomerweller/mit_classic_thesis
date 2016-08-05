@@ -11,13 +11,13 @@ The stories demonstrated in the previous chapter were presented in person and in
 
 This full sensory experience is difficult to translate into the virtual realm with today's technology. How can we create an experience that is as expressive, natural to the stakeholders, provides an understanding of the surroundings and allows for contextual discussion?
 
-\section{Video for the win}
+\section{Video for the Win}
 
-Video is expressive and raw. To understand a story, it is crucial for participants to have an unfiltered point of view. Often times the observations participants make relate to items they have seen in the surrounding and not to the main narrative the organization is trying to tell. While text often has a clearer message to it, it has already been digested to fit the narrative of the author. While the same can be said about edited video content, there is still an inherent feel of the surrounding to the medium. <TODO: reference>
+Video is expressive and raw. To understand a story, it is crucial for participants to have an unfiltered point of view. Often times the observations participants make relate to items they have seen in the surrounding and not to the main narrative the organization is trying to tell. While text often has a clearer message to it, it has already been digested to fit the narrative of the author. While the same can be said about edited video content, there is still an inherent feel of the surrounding to the medium. <TODO: I just can't find a good reference to support this statment>
 
 %TODO: use this {https://www.psychologytoday.com/blog/behind-online-behavior/201505/video-vs-text-the-brain-perspective}
 
-Beyond that, it is important to use a medium that users are already familiar with. Online video is extremely popular and familiar. Every minute, 800 hours worth of video are being uploaded to Youtube, the most popular video sharing online service. It is clear that people are capturing video. Potential clients also already have the basic tools needed to participate: a recording device in the form of a smartphone and in many cases broadband mobile access. 
+Beyond that, it is important to use a medium that users are already familiar with. Online video is extremely popular and familiar. Every minute, 500 hours worth of video are being uploaded to Youtube\cite{youtubestats}, the most popular video sharing online service. It is clear that people are capturing video. Potential clients also already have the basic tools needed to participate: a recording device in the form of a smartphone and in many cases broadband mobile access. 
 
 \subsection{Limitations of Video} 
 
@@ -44,19 +44,29 @@ However, detailed metadata is usually not present in videos, especially not in a
 
 The solution I propose is to employ an automatic metadata generator that will work in conjunction with simple manual data input, to generate a list of tags per video. These tags will be generated according to identified entities, both through extraction of keywords from transcribed text and through image recognition techniques. The tags, for example such as \textit{Bottle} or \textit{Donation}, can be used to browse stories by a tag filter. In the future, tags can also be used create semantic links between different stories.
 
-\subsection{Interactive Exploration - Timeline based discussion / Hypermedia}
+\subsection{Interactive Exploration}
 
 In the interactive exploration part of the process I wish to address two of the main issues related to the chosen medium of video. How to enable contextual discussion and allow for easy exploration? Following is a review of related work and a proposed approach. 
 
 Regarding contextual discussion, Some video viewing platforms, such as Youtube, address the contextual discussion issue using hyperlinked timestamps. This means that in the regular, linear, commenting systems, users can mention timestamps. These timestamps, for example  \textit{1:20}, will automatically be hyperlink to the relevant time in the video. In the case of \textit{1:20}, clicking on it will seek the video to one minute and twenty seconds. 
 
-% (Figure: Youtube comments)
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=4in]{figures/youtube-left.png}
+      \caption{Youtube comments. First page is on the left, second is on the right}
+      \label{fig_youtube_comments}
+   \end{figure}
 
 While this does allow for the addition of time context, these comments behave just like any other. They are presented in the order in which they were inputted, there is no indicator about their existence at playtime or when clusters of them appear and they are generally second class citizens in the video playback experience
 
 Soundcloud \cite{soundcloud}, a music streaming service, attempts to solve this issue. They place indicators of timestamped contents on the seek bar of the audio clip. The actual comment text is displayed when the playback timestamp matches that of the comment or when the listener hovers their mouse above the indicator. This approach puts comments in the front of the experience and results in clusters of indicators that immediately reveal what are the most discussed parts of the track.
 
-% (Figure: SoundCloud)
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=4in]{figures/soundcloud.png}
+      \caption{Soundcloud comments. Indicators are embedded into the seek bar}
+      \label{fig_youtube_comments}
+   \end{figure}
 
 Inspired by these platforms and by the work done in the field of HyperMedia (covered in the Background Chapter), I propose a novel user interface that treats discussion as hyper layers in video. In it, Comments are: 
 
