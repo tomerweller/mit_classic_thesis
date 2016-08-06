@@ -1,27 +1,28 @@
 \chapter{Design Considerations}
 \label{chap_design_consider}
 
-In this Chapter I argue that video is the ideal storytelling medium for This Is How. I will also iterate over the three steps of the process that were outlined in the the previous chapter and present design considerations for each with regards to video as a medium. 
-Video as basis for Brainstorming and Collaboration
+In this Chapter I argue that video is the ideal storytelling medium for \textit{This Is How}. I will also iterate over the three steps of the process that were outlined in the the previous chapter and present design considerations for each with regards to video as a medium. 
+
+\section{Choosing a medium}
 
 This is How is a story centric crowdsourcing platform. Given the centrality of storytelling to the process, it’s critical to ask what medium is best for conveying these stories?
 Story Requirements
 
-The stories demonstrated in the previous chapter were presented in person and in an informal manner. No structure was forced yet it did exist. It was imposed by the experience of the client in presenting their work,  a grasp of their goals and familiarity with processes. For the participants, the ability to intervene and ask questions, explore and touch the surrounding, was keen for a deep understanding of the organization, their challenges and constraints. 
+The stories presented by nonprofits in the previous chapter were told in person and in an informal manner. No structure was forced yet it did exist. It was imposed by the experience of the nonprofit in presenting their work,  a grasp of their goals and familiarity with processes. For makers, the ability to intervene and ask questions, explore and touch the surrounding, was keen for a deep understanding of the organization, their challenges and constraints. 
 
 This full sensory experience is difficult to translate into the virtual realm with today's technology. How can we create an experience that is as expressive, natural to the stakeholders, provides an understanding of the surroundings and allows for contextual discussion?
 
-\section{Video for the Win}
+\section{Video}
 
-Video is expressive and raw. To understand a story, it is crucial for participants to have an unfiltered point of view. Often times the observations participants make relate to items they have seen in the surrounding and not to the main narrative the organization is trying to tell. While text often has a clearer message to it, it has already been digested to fit the narrative of the author. While the same can be said about edited video content, there is still an inherent feel of the surrounding to the medium. <TODO: I just can't find a good reference to support this statment>
+Video is expressive and raw. To understand a story, it is crucial for participants to have an unfiltered point of view. Often times the observations participants make relate to items they have seen in the surrounding and not to the main narrative the organization is trying to tell. While text often has a clearer message to it, it has already been digested to fit the narrative of the author. While the same can be said about edited video content, there is still an inherent feel of the surrounding to the medium. <TODO: find a  reference to support this statement>
 
 %TODO: use this {https://www.psychologytoday.com/blog/behind-online-behavior/201505/video-vs-text-the-brain-perspective}
 
-Beyond that, it is important to use a medium that users are already familiar with. Online video is extremely popular and familiar. Every minute, 500 hours worth of video are being uploaded to Youtube\cite{youtubestats}, the most popular video sharing online service. It is clear that people are capturing video. Potential clients also already have the basic tools needed to participate: a recording device in the form of a smartphone and in many cases broadband mobile access. 
+Beyond that, it is important to use a medium that users are already familiar with. Online video is extremely popular and familiar. Every minute, 500 hours worth of video are being uploaded to Youtube\cite{youtubestats}, the most popular video sharing online service. It is clear that people are capturing video. Nonprofits also already have the basic tools needed to participate: a recording device in the form of a smart-phone and in many cases broadband Internet access. 
 
 \subsection{Limitations of Video} 
 
-Video is far from being a perfect medium. While many nonprofit organizations might demonstrate a high level of presentability, there is no guarantee that their ability to produce these videos will match. Creating compelling video content is difficult. A good video should strike a balance between duration and depth that makes is easy to digest yet presents enough details to get participants interested. 
+Video is far from being a perfect medium. While many nonprofit organizations might demonstrate a high level of present-ability, there is no guarantee that their ability to produce these videos will match. Creating compelling video content is difficult. A good video should strike a balance between duration and depth that makes is easy to digest yet presents enough details to get participants interested. 
 
 The above issue is worsened by the linear nature of video, the fact that it has predetermined duration and pace makes is hard to skim over and explore. This also raises concern regarding the ability to create contextual discussion. How can we facilitate discussion over specific objects in space and time?
 
@@ -29,7 +30,7 @@ I'll revisit some of these issues and suggest ways to address them in the follow
 
 \section{This is How}
 
-As part of this thesis I built a Web platform, This is How, that allows nonprofits to upload a story in the form a video. This story describes the work of the organization and the processes they employ. It will also allow makers to browse through these stories, engage in discussion with the organization to deepen their understanding, and finally, collaboratively brainstorm. 
+As part of this thesis I built a web platform, \textit{This is How}, that allows nonprofits to upload a story in the form a video. This story describes the work of the organization and the processes they employ. It will also allow makers to browse through these stories, engage in discussion with the organization to deepen their understanding, and finally, collaboratively brainstorm. 
 
 In the next three subsections I drill down into the design considerations of each of the steps we outlined in Chapter 3: Discovery, Interactive Exploration and Brainstorming. These consideration include requirements, related work and my approach. 
 
@@ -44,7 +45,7 @@ However, detailed metadata is usually not present in videos, especially not in a
 
 The solution I propose is to employ an automatic metadata generator that will work in conjunction with simple manual data input, to generate a list of tags per video. These tags will be generated according to identified entities, both through extraction of keywords from transcribed text and through image recognition techniques. The tags, for example such as \textit{Bottle} or \textit{Donation}, can be used to browse stories by a tag filter. In the future, tags can also be used create semantic links between different stories.
 
-\subsection{Interactive Exploration}
+\subsection{Interactive Exploration - HyperVideo}
 
 In the interactive exploration part of the process I wish to address two of the main issues related to the chosen medium of video. How to enable contextual discussion and allow for easy exploration? Following is a review of related work and a proposed approach. 
 
@@ -88,7 +89,7 @@ This allows participants to ask questions that relate to a specific point in tim
 
 As presented in the previous chapter, brainstorming takes many forms. Unlike conversations, which can be modeled as a set of messages, whether directed or broadcasted, Brainstorming also includes the concept of a shared mental model that can be collaboratively manipulated. While this model can live solely inside the head of the participants, it is not a scalable approach. successful models include the use of a medium such as whiteboard, sticky notes, etc. How can we implement such a shared mental model for remote participants?
 
-The usage of a networked computer as a medium that facilitates a shared mental model was first described in 1968 by J.C.R. Licklider. After first attending a meeting in which all participants had a networked computer with access to shared editable resources, Licklider concluded that ``In a few years, men will be able to communicate more effectively through a machine than face to face.''
+The usage of a networked computer as a medium that facilitates a shared mental model was first described in 1968 by J.C.R. Licklider. After first attending a meeting in which all participants had a networked computer with access to shared editable resources, Licklider concluded that ``In a few years, men will be able to communicate more effectively through a machine than face to face.''\cite{licklider1968computer}
 
 Nowadays, a common tool to facilitate these shared mental models are real time collaborative text editors. These allow for multiple users to edit the same document at the same time while making changes visible to all other users in near real time. Most of these tools also allow for the tracking of changes, who is responsible for every edit, and provide a discussion mechanism. Some notable editors in this space are include Google Docs, Apache Wave and Etherpad. 
 
