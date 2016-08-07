@@ -1,16 +1,6 @@
 \chapter{Design and Implementation}
 \label{chap_design}
 
-% Outline
-% - Implementation Considerations
-% - Implementations Details
-% - Super Glue
-% - User Experience walk-through 
-%   - Main
-%   - Add Story
-%   - Dashboard
-%   - Story Page
-
 This Chapter deals with the implementation of \textit{This is How} including Technology and User experience. It also includes a section dedicated to Super Glue, the automatic metadata extraction system, including description and implementation, 
 
 \section{Technology Considerations}
@@ -25,15 +15,15 @@ Given that This is How caters makers and hackers, the technology stack it employ
 
 \section{Technology Details}
 
-<TODO: Cleanup this section>
+<TODO: restructure this section in bullet points>
 
 \textit{This is How} is developed under the MIT open source license. It is version controlled with the open source GIT\cite{git} version control system and hosted on Github\cite{github} which also tracks bug reports. 
 
-\textit{This is How} is developed as a web application with three major components: server, client and storage. Both the client and server utilize Javascript as their main programming language. The server side uses Node.js, a widely adopted Javascript runtime engine. NPM\cite{}, the most popular Javascript package manager, is used both as a dependency manager and a build system. The server also uses super-glue, described later in this chapter, for video metadata extraction.
+\textit{This is How} is developed as a web application with three major components: server, client and storage. Both the client and server utilize Javascript as their main programming language. The server side uses Node.js, a widely adopted Javascript runtime engine. npm\cite{npm}, the most popular Javascript package manager, is used both as a dependency manager and a build system. The server also uses super-glue, described later in this chapter, for video metadata extraction.
 
-ReactJS is The main framework used on the Client side is. React provides a component based, efficient rendering engine and as of writing, is the fastest growing web framework \cite{reactjs}. As with the server, NPM manages dependencies although the build process is managed by Webpack \cite{webpack}. For video playback we use the HTML5 <video> tag and for video encoding, the open VP8\cite{} codec. 
+ReactJS is The main framework used on the Client side is. React provides a component based, efficient rendering engine and as of writing, is the fastest growing web framework \cite{reactjs}. As with the server, NPM manages dependencies although the build process is managed by Webpack \cite{webpack}. For video playback we use the HTML5 <video> tag and for video encoding, the open VP8\cite{vp8} codec. 
 
-Collaborative document editing is done with Etherpad\cite{ehterpad}. Etherpad is a collaborative document editor that was launched in 2008 and released as opensource after being acquired by Google in 2009. It has been in development ever since and is extremely flexible. It can work with a variety of datastores, has built in chat and can be easily embedded into other websites.
+Collaborative document editing is done with Etherpad\cite{etherpad}. Etherpad is a collaborative document editor that was launched in 2008 and released as opensource after being acquired by Google in 2009. It has been in development ever since and is extremely flexible. It can work with a variety of datastores, has built in chat and can be easily embedded into other websites.
 
 Storage is divided into structured and unstructured data. The Structured data includes all conversation and metadata while unstructured data refers to the video files. For structured data we use CouchDB\cite{couchdb}, a simple document driven database which allows for real time synchronization between the different clients and the server.  Video files are stored in a simple local file server but can easily plug into 3rd party services such as AWS S3 or Google Cloud Storage.
 
