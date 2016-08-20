@@ -1,9 +1,12 @@
+Forked from Palash who forked from Andrew
+
+-------------------
+
 Modified version of Andrew Miede's classic thesis to fit MIT's thesis requirement - palash@media 7/6/16
 
 See Example.pdf for a preview
 
 Compiles with TeX Live (http://tug.org/texlive) version 2015
-
 
 -------------------
 
