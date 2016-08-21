@@ -15,8 +15,6 @@ Given that \textit{This is How} caters to makers and hackers, the technology sta
 
 \section{Technology Details}
 
-<TODO: restructure this section in bullet points>
-
 \textit{This is How} is developed under the MIT open source license. It is version controlled with the open source GIT\cite{git} version control system and hosted on Github\cite{github} which also tracks bug reports. 
 
 \textit{This is How} is developed as a web application with three major components: server, client and storage. Both the client and server utilize Javascript as their main programming language. The server side uses Node.js, a widely adopted Javascript runtime engine. npm\cite{npm}, the most popular Javascript package manager, is used both as a dependency manager and a build system. The server also uses super-glue, described later in this chapter, for video metadata extraction.
@@ -27,7 +25,7 @@ Collaborative document editing is done with Etherpad\cite{etherpad}. Etherpad is
 
 Storage is divided into structured and unstructured data. The Structured data includes all conversation and metadata while unstructured data refers to the video files. For structured data we use CouchDB\cite{couchdb}, a simple document driven database which allows for real time synchronization between the different clients and the server.  Video files are stored in a simple local file server but can easily plug into 3rd party services such as AWS S3 or Google Cloud Storage.
 
-The Webapp is currently stored on Heroku, a pupular platform service that makes it very simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it possible to migrate to other services or dedicated hardware. 
+The Webapp is currently stored on Heroku\cite{heroku}, a pupular platform service that makes it simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it possible to migrate to other services or dedicated hardware as needed. 
 
 \section{SuperGlue - Automatic MetaData extraction}
 SuperGlue is an automatic metadata extractor that works with all forms of media: video text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application.
@@ -108,7 +106,6 @@ The Add Story page provides the necessary mechanism for adding a story: uploadin
    \end{figure}
 
 The Dashboard Page is unique per user and presents a collection of all of their published stories. These are shown as story thumbnails, similar to the ones in the main page. Clicking on any story leads to it's story page. 
-Story Page
 
 \subsection{Story Page}
 
@@ -139,16 +136,15 @@ Comments are collapsible into discussion threads. These threads provide a mechan
 % Figure: Seekbar
 
 All of the comments are indicated as semi-transparents blocks on the seek bar and on mouse hover will display the respective comment. At a glance, it is evident which areas of the video are active in terms of discussion and provides a seeking mechanism for the author and other participants.  
+
 \subsection{Idea Pad}
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/ideapad.png}
+      \includegraphics[width=4in]{figures/ideapad-collapsed.png}
       \caption{This is How - Idea Pad}
       \label{fig_comment_thread}
    \end{figure}
-
-<TODO: add collapsed idea screenshot> 
 
 The idea pad accommodates brainstorming by allowing participants to suggest ideas. Initially, an idea is entered as an idea title. Rather than discussing these ideas as simple conversations, they collapse into collaborative documents which any user can share and help evolve. These documents also contains a discussion pane in order not to pollute the document with traditional conversation. 
 
