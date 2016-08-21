@@ -36,9 +36,7 @@ In the next three subsections I drill down into the design considerations of eac
 \subsection{Discovery - Video Metadata}
 In all of the cases examined in the preliminary study, discovery is one of the most challenging issues. This is How uses metadata as a driver for discovery. 
 
-<TODO: add some more citations about metadata>
-
-Video contains an abundance of informations: topics discussed, number of people in it, subtitles, scenery, sound track and the exact timestamps of all of the above. This data is commonly referred to as metadata. Tapping into this data and indexing it allows for searchability and semantic linking. If the topic discussed in a story is bottling milk, perhaps a juice startup can also benefit from the knowledge?
+Video contains an abundance of informations: topics discussed, number of people in it, subtitles, scenery, sound track and the exact timestamps of all of the above. This data is commonly referred to as metadata. Tapping into this data and indexing it allows for searchability and semantic linking\cite{jain1994metadata}. If the topic discussed in a story is bottling milk, perhaps a juice startup can also benefit from the knowledge?
 
 However, detailed metadata is usually not present in videos, especially not in amateur ones. In addition, it is cumbersome to manually add metadata and one cannot expect users to manually input all this information.
 
@@ -68,7 +66,16 @@ Soundcloud \cite{soundcloud}, a music streaming service, attempts to solve this 
       \label{fig_youtube_comments}
    \end{figure}
 
-Inspired by these platforms and by the work done in the field of HyperMedia (covered in the Background Chapter), I propose a novel user interface that treats discussion as hyper layers in video. In it, Comments are: 
+CATool\cite{catool}, a collaborative annotation tool for video developed at Harvard, is aimed at the academic community and allows faculty and students to discuss video clips using timestamped comments and comment replies.
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=4in]{figures/catool.png}
+      \caption{CATool\cite{catool} - a collaborative annotation tool}
+      \label{fig_catool}
+   \end{figure}
+
+Inspired by these platforms and by the work done in the field of hypermedia (covered in the Background Chapter), I propose a novel user interface that treats discussion as hyper layers in video. In it, Comments are: 
 
 \begin{itemize}
 
@@ -76,13 +83,13 @@ Inspired by these platforms and by the work done in the field of HyperMedia (cov
 
 \item \textit{Timestamped} according to the playback time when they're entered and only appear in that time in the playback. 
 
-\item \textit{Discussable}, each one can collapse into it's own thread that allows for further discussion, including text and video messages. 
+\item \textit{Discuss-able}, each one can collapse into it's own thread that allows for further discussion, including text and video messages. 
 
 \item \textit{Indicated} in the video seek bar according to their timestamp.
 
 \end{itemize}
 
-This allows participants to ask questions that relate to a specific point in time and the Organization to answer with rich media, including videos that “drill down”, providing more context in response to a question. It also allows other participants to quickly see where discussions are happening in the video and skim by navigating between them. These properties will be demonstrated in the implementation chapter. <TODO Philipp: more examples of other people working on similar video interfaces>
+This allows participants to ask questions that relate to a specific point in time and the Organization to answer with rich media, including videos that “drill down”, providing more context in response to a question. It also allows other participants to quickly see where discussions are happening in the video and skim by navigating between them. These properties will be demonstrated in the implementation chapter.
 
 \subsection{Brainstorming - Collaborative Pads}
 
