@@ -28,7 +28,15 @@ Storage is divided into structured and unstructured data. The Structured data in
 The Webapp is currently stored on Heroku\cite{heroku}, a popular platform service that makes it simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it possible to migrate to other services or dedicated hardware as needed. 
 
 \section{SuperGlue - Automatic MetaData extraction}
-SuperGlue is an automatic metadata extractor that works with all forms of media: video, text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application.
+SuperGlue is an automatic metadata extractor that works with all forms of media: video, text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application. (see \autoref{fig_wallofnow})
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=4in]{figures/wallofnow.png}
+      \caption{Wall of Now\cite{wallofnow2016} is a project thats displays a digest of the last 24 hours of media from 20 different news channels, using metadata collected by SuperGlue.}
+      \label{fig_wallofnow}
+   \end{figure}
+
 
 SuperGlue is built as a modular, expandable system that forms an analysis pipeline. Media is submitted on one side of the pipe and at its end, a rich metadata document is generated and stored on a shared databases. The modules themselves range from face detection to transcription and natural language processing. Modules can declare dependencies on other modules. For example, the natural language keyword extraction module depends on the output of transcription module.
 
@@ -49,6 +57,9 @@ The Workers are the main work horse behind the system and are also implemented i
 All the data is stored in a single collection in a MongoDB database. Each record in this collection represents a single media item and all the output that's been gathered from the various modules is stored in it. 
 
 This architecture results in an ability to successfully scale horizontally. Workers, which are the main units of computation, are stateless and as such can be added and removed without affecting the system. SuperGlue is currently processing 500 hours worth of video in a day using 20 workers running on virtual machines.
+
+
+
 
 \section{User Experience Considerations} 
 
