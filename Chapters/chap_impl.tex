@@ -1,23 +1,23 @@
 \chapter{Design and Implementation}
 \label{chap_design}
 
-This Chapter deals with the implementation of \textit{This is How} including Technology and User experience. It also includes a section dedicated to Super Glue, the automatic metadata extraction system, including description and implementation, 
+This Chapter deals with the implementation of \textit{This is How} including Technology and User experience. It also includes a section dedicated to SuperGlue, the automatic metadata extraction system, including description and implementation, 
 
 \section{Technology Considerations}
 
 Given that \textit{This is How} caters to makers and hackers, the technology stack it employs should respect their values of openness and transparency. As such, it must be coherent, extensible and modifiable.
  
-\textit{This is How} is developed as an open source project. The source code will be available at all stages of development, not just on release, and allow for community contributions. It must utilize open standards, these are governed by transparent standard committees and are royalty free. 
+\textit{This is How} is developed as an open source project. The source code has been and will continue to be available throughout all stages of development, not just on release, and allow for community contributions. It utilizes open standards, these are governed by transparent standard committees and are royalty free. 
 
-\textit{This is How} must allow for rapid iterative development. This means using programming languages, libraries and frameworks that value productivity over other consideration. This also derives extensibility, it must allow for simple integration and composition of third-party open source packages. 
+\textit{This is How} allows for rapid iterative development. This means it uses programming languages, libraries and frameworks that value productivity over other considerations such as performance. This also derives extensibility, it allows for simple integration and composition of third-party open source packages. 
 
-\textit{This is How} must be familiar. While it is sometimes tempting to use niche programming languages and technologies, these interfere with the ease of community contribution. I prefer technologies with a proven track record and wide adoption rates.
+\textit{This is How} is built with familiar tools. While it is sometimes tempting to use niche programming languages and technologies, these interfere with the ease of community contribution. I prefer technologies with a proven track record and wide adoption rates.
 
 \section{Technology Details}
 
 \textit{This is How} is developed under the MIT open source license. It is version controlled with the open source GIT\cite{git} version control system and hosted on Github\cite{github} which also tracks bug reports. 
 
-\textit{This is How} is developed as a web application with three major components: server, client and storage. Both the client and server utilize Javascript as their main programming language. The server side uses Node.js, a widely adopted Javascript runtime engine. npm\cite{npm}, the most popular Javascript package manager, is used both as a dependency manager and a build system. The server also uses super-glue, described later in this chapter, for video metadata extraction.
+\textit{This is How} is developed as a web application with three major components: server, client and storage. Both the client and server utilize Javascript as their main programming language. The server side uses Node.js, a widely adopted Javascript runtime engine. npm\cite{npm}, the most popular Javascript package manager, is used both as a dependency manager and a build system. The server also uses SuperGlue, described later in this chapter, for video metadata extraction.
 
 ReactJS is The main framework used on the Client side. React provides a component based, efficient rendering engine and as of writing, is the fastest growing web framework \cite{reactjs}. As with the server, NPM manages dependencies although the build process is managed by Webpack \cite{webpack}. For video playback we use the HTML5 <video> tag and for video encoding, the open VP8\cite{vp8} codec. 
 
@@ -25,14 +25,14 @@ Collaborative document editing is done with Etherpad\cite{etherpad}. Etherpad is
 
 Storage is divided into structured and unstructured data. The Structured data includes all conversation and metadata while unstructured data refers to the video files. For structured data we use CouchDB\cite{couchdb}, a simple document driven database which allows for real time synchronization between the different clients and the server.  Video files are stored in a simple local file server but can easily plug into 3rd party services such as AWS S3 or Google Cloud Storage.
 
-The Webapp is currently stored on Heroku\cite{heroku}, a pupular platform service that makes it simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it possible to migrate to other services or dedicated hardware as needed. 
+The Webapp is currently stored on Heroku\cite{heroku}, a popular platform service that makes it simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it possible to migrate to other services or dedicated hardware as needed. 
 
 \section{SuperGlue - Automatic MetaData extraction}
-SuperGlue is an automatic metadata extractor that works with all forms of media: video text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application.
+SuperGlue is an automatic metadata extractor that works with all forms of media: video, text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application.
 
 SuperGlue is built as a modular, expandable system that forms an analysis pipeline. Media is submitted on one side of the pipe and at its end, a rich metadata document is generated and stored on a shared databases. The modules themselves range from face detection to transcription and natural language processing. Modules can declare dependencies on other modules. For example, the natural language keyword extraction module depends on the output of transcription module.
 
-While originally being designed for processing of news, as demonstrated in This is How, SuperGlue can handle various types of Media. For This is How, we utilize the keywords extracted from from transcript. From empirical testing, we've concluded these tend to have a high relevance score.    
+While originally being designed for processing of news, as demonstrated in \textit{This is How}, SuperGlue can handle various types of Media. For This is How, we utilize the keywords extracted from from transcript. From empirical testing, we've concluded these tend to have a high relevance score.    
 
 \subsection{SuperGlue Implementation}
 
@@ -44,7 +44,7 @@ The task queue is implemented as a Redis database with one value: a simple order
 
 The Workers are the main work horse behind the system and are also implemented in Python. Modules are defined with python classes that adhere to a simple module api. As part of the definition, they can also declare dependencies on other modules. Whenever a worker is free, it polls the task queue for the next task. It then executes the relevant module on the relevant media item and stores the result in the database. Upon completion, it will detect which modules depend on the one that just completed, and will insert new tasks for all of them in the task queue. 
 
-<TODO: add an illustration of super-glue>
+<TODO: add an illustration of SuperGlue>
 
 All the data is stored in a single collection in a MongoDB database. Each record in this collection represents a single media item and all the output that's been gathered from the various modules is stored in it. 
 
@@ -62,14 +62,14 @@ The user experience of \textit{This is How} is based on the three-step process o
 
 \section{User Experience Overview}
 
-In this section I present the major concepts of the User Experience and overview the experience on a page by page basis. For each of these pages I present the purpose and an overview of the different components. 
+In this section I present the major concepts of the user experience. For each page of the interface I present the purpose and an overview of the different components. 
 
 \subsection{Main Concepts}
 
 These concepts are used throughout the user experience. Concepts that are local to a specific portion of the experience will be covered in the relevant section.
 
 \begin{itemize}
-\item \textit{Users} are either makers or nonprofits seeking help. \textit{This is How} does not differentiate between the populations thus allowing them to interchange.
+\item \textit{Users} are either makers or nonprofits seeking help.
 
 \item \textit{Stories} are the main entity of the system. Each Story has a main video that describes a process and challenges. Stories also encompass the different collaboration concepts that will be described later.
 
@@ -140,7 +140,7 @@ Comments are collapsible into discussion threads. These threads provide a mechan
 
 % Figure: Seekbar
 
-All of the comments are indicated as semi-transparents blocks on the seek bar and on mouse hover will display the respective comment. At a glance, it is evident which areas of the video are active in terms of discussion and provides a seeking mechanism for the author and other participants.  
+All of the comments are displayed as semi-transparent blocks on the seek bar and on mouse hover will display the respective comment. At a glance, it is evident which areas of the video are active in terms of discussion and provides a seeking mechanism for the author and other participants.  
 
 \subsection{Idea Pad}
 

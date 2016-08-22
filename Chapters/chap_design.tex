@@ -1,19 +1,19 @@
 \chapter{Design Considerations}
 \label{chap_design_consider}
 
-In this Chapter I argue that video is the ideal storytelling medium for \textit{This Is How}. I will also iterate over the three steps of the process that were outlined in the the previous chapter and present design considerations for each with regards to video as a medium. 
+In this chapter I argue that video is the ideal storytelling medium for \textit{This Is How}. I will also iterate over the three steps of the process that were outlined in the the previous chapter and present design considerations for each with regards to video as a medium. 
 
 \section{Choosing a medium}
 
-This is How is a story centric crowdsourcing platform. Given the centrality of storytelling to the process, it’s critical to ask what medium is best for conveying these stories?
+\textit{This is How} is a story-centric crowdsourcing platform. Given the centrality of storytelling to the process, it’s critical to ask what medium is best for conveying these stories?
 
-The stories presented by nonprofits in the previous chapter were told in person and in an informal manner. No structure was forced yet it did exist. It was imposed by the experience of the nonprofit in presenting their work,  a grasp of their goals and familiarity with processes. For makers, the ability to intervene and ask questions, explore and touch the surrounding, was keen for a deep understanding of the organization, their challenges and constraints. 
+The stories presented by nonprofits in the previous chapter were told in person and in an informal manner. No structure was forced yet it did exist. It was imposed by the experience of the nonprofit in presenting their work,  a grasp of their goals and familiarity with processes. For makers, the ability to intervene and ask questions, explore and touch the surrounding, was key for a deep understanding of the organization, their challenges and constraints. 
 
 This full sensory experience is difficult to translate into the virtual realm with today's technology. How can we create an experience that is as expressive, natural to the stakeholders, provides an understanding of the surroundings and allows for contextual discussion?
 
 \section{Video}
 
-Video is expressive and raw. To understand a story, it is crucial for participants to have an unfiltered point of view. Often times the observations participants make relate to items they have seen in the surrounding and not to the main narrative the organization is trying to tell. While text often has a clearer message to it, it has already been digested to fit the narrative of the author. While the same can be said about edited video content, there is still an inherent feel of the surrounding to the medium. <TODO: find a  reference to support this statement>
+Video is expressive and raw. To understand a story, it can be helpful for participants to have an unfiltered point of view. Often times the observations participants make relate to items they have seen in the surrounding and not to the main narrative the organization is trying to tell. While text often has a clearer message to it, it has already been digested to fit the narrative of the author. While the same can be said about edited video content, there is still an inherent feel of the surrounding to the medium. <TODO: find a  reference to support this statement>
 
 %TODO: use this {https://www.psychologytoday.com/blog/behind-online-behavior/201505/video-vs-text-the-brain-perspective}
 
@@ -29,7 +29,7 @@ I'll revisit some of these issues and suggest ways to address them in the follow
 
 \section{This is How}
 
-As part of this thesis I built a web platform, \textit{This is How}, that allows nonprofits to upload a story in the form a video. This story describes the work of the organization and the processes they employ. It will also allow makers to browse through these stories, engage in discussion with the organization to deepen their understanding, and finally, collaboratively brainstorm. 
+As part of this thesis I built a web platform, \textit{This is How}, that allows nonprofits to upload a story in the form a video. This story describes the work of the organization and the processes they employ. It also allow makers to browse through these stories, engage in discussion with the organization to deepen their understanding, and finally, collaboratively brainstorm. 
 
 In the next three subsections I drill down into the design considerations of each of the steps we outlined in Chapter 3: Discovery, Interactive Exploration and Brainstorming. These consideration include requirements, related work and my approach. 
 
@@ -57,7 +57,7 @@ Regarding contextual discussion, Some video viewing platforms, such as Youtube, 
 
 While this does allow for the addition of time context, these comments behave just like any other. They are presented in the order in which they were inputted, there is no indicator about their existence at playtime or when clusters of them appear and they are generally second class citizens in the video playback experience
 
-Soundcloud \cite{soundcloud}, a music streaming service, attempts to solve this issue. They place indicators of timestamped contents on the seek bar of the audio clip. The actual comment text is displayed when the playback timestamp matches that of the comment or when the listener hovers their mouse above the indicator. This approach puts comments in the front of the experience and results in clusters of indicators that immediately reveal what are the most discussed parts of the track.
+Soundcloud \cite{soundcloud}, a music streaming service, attempts to solve this issue for web-based audio streaming. Its music player interfaces place indicators of timestamped comments on the seek bar of the audio clip. The actual comment text is displayed when the playback timestamp matches that of the comment or when the listener hovers their mouse above the indicator. This approach puts comments in the front of the experience and results in clusters of indicators that immediately reveal what are the most discussed parts of the track.
 
    \begin{figure}[thpb]
       \centering
@@ -93,11 +93,11 @@ This allows participants to ask questions that relate to a specific point in tim
 
 \subsection{Brainstorming - Collaborative Pads}
 
-As presented in the previous chapter, brainstorming takes many forms. Unlike conversations, which can be modeled as a set of messages, whether directed or broadcasted, Brainstorming also includes the concept of a shared mental model that can be collaboratively manipulated. While this model can live solely inside the head of the participants, it is not a scalable approach. successful models include the use of a medium such as whiteboard, sticky notes, etc. How can we implement such a shared mental model for remote participants?
+As presented in the previous chapter, brainstorming takes many forms. Unlike conversations, which can be modeled as a set of messages, whether directed or broadcasted, Brainstorming also includes the concept of a shared mental model that can be collaboratively manipulated. While this model can live solely inside the head of the participants, it is not a scalable approach. Successful (capital S!) strategies include using whiteboards, sticky notes, or other tools to allow users express and share their mental models with others. How can we implement such a shared mental model for remote participants?
 
 The usage of a networked computer as a medium that facilitates a shared mental model was first described in 1968 by J.C.R. Licklider. After first attending a meeting in which all participants had a networked computer with access to shared editable resources, Licklider concluded that ``In a few years, men will be able to communicate more effectively through a machine than face to face.''\cite{licklider1968computer}
 
-Nowadays, a common tool to facilitate these shared mental models are real time collaborative text editors. These allow for multiple users to edit the same document at the same time while making changes visible to all other users in near real time. Most of these tools also allow for the tracking of changes, who is responsible for every edit, and provide a discussion mechanism. Some notable editors in this space are include Google Docs\cite{gdocs}, Apache Wave\cite{wave} and Etherpad\cite{etherpad}. 
+Nowadays, a common tool to facilitate these shared mental models are real time collaborative text editors. These allow for multiple users to edit the same document at the same time while making changes visible to all other users in near real time. Most of these tools also allow for the tracking of changes, record authorship, and provide a discussion mechanism. Some notable editors in this space include Google Docs\cite{gdocs}, Apache Wave\cite{wave} and Etherpad\cite{etherpad}. 
 
 A real time shared editor fits our needs because it provides a basis for Brainstorming without enforcing too much structure. Given that the range of topics and participants is expected to be wide, the simplicity of text provides an optimal format. 
 
