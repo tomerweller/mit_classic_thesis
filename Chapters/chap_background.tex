@@ -19,26 +19,32 @@ The Internet has also sped up the development of software by facilitating the ac
 
 While the practice of building and distributing a physical product is inherently different than software, it is being transformed through the availability of tools for digital fabrication. Digital fabrication tools allow for physical objects to be designed digitally on a computer and then fabricated according to design by a dedicated machine. These machines range from numerically controlled milling machines to laser cutters and 3d printers. While various types of these machines have been around since the 1950's, their falling cost, and the introduction of digital control interfaces have increased their availability in recent years and have lowered the threshold for fabricating digital artifacts.
 
-3d printers are perhaps the most associated tools with this transformation. 3d printers, in contrast to other tools like milling machines, use additive manufacturing as opposed to subtractive manufacturing, i.e. they construct an object by adding layers of materials rather than cutting into a block of material. This allows for objects with complex inner structures to be designed and fabricated by people who are not sophisticated designers. 3d printers have gained enormous popularity thanks to their simplicity and the wide availability of cheap models. While they are far from being the ultimate digital fabrication tool, perhaps their greatest contribution is to serve a ``gateway drug'' into the world of digital fabrication. 
+\marginpar {
+  \includegraphics[width=\marginparwidth]{figures/prusai3.jpg}
+  Prusa i3 - an open source 3d printer\cite{prusai3} 
+} 3d printers are perhaps the most associated tools with this transformation. 3d printers, in contrast to other tools like milling machines, use additive manufacturing as opposed to subtractive manufacturing, i.e. they construct an object by adding layers of materials rather than cutting into a block of material. This allows for objects with complex inner structures to be designed and fabricated by people who are not sophisticated designers. 3d printers have gained enormous popularity thanks to their simplicity and the wide availability of cheap models. While they are far from being the ultimate digital fabrication tool, perhaps their greatest contribution is to serve a ``gateway drug'' into the world of digital fabrication. 
 
 With widespread availability of digital fabrication tools, the world of hardware design is starting to mimic the one of software development. Online communities such as Thingiverse\cite{thingverse} and Hackaday\cite{hackaday} allow their members to share designs, learn from others, and collaborate remotely. Prototypes can be built in hours which allows for quick iterative design, similarly to software. 
 
 The proliferation of the above tools and technologies, both in software and hardware, has given birth to a culture of makers and hackers. These individuals, coming from a wide background and carrying diverse skill sets, take pride in the ability to rapidly build prototypes in a non-commercial environment. This culture extends beyond the online communities mentioned above and into real life gatherings and spaces. 
 
-One type of gathering strongly associated with this culture is the Hackathon. Hackathons are events in which hackers gather together for a predefined amount of time, often a weekend, and build prototypes around a predefined subject. These range from commercial Hackathons, organized by companies and aimed at attracting developers to their ecosystem, to social good Hackathons, organized with a specific social goal like improving breast pumps\cite{d2016feminist} or assisting rural communities\cite{hackforwestmass}.   
+One type of gathering strongly associated with this culture is the Hackathon. \marginpar {
+  \includegraphics[width=\marginparwidth]{figures/hackathon-pizza.png}
+  Hackathons often feature free pizza and beer
+} Hackathons are events in which hackers gather together for a predefined amount of time, often a weekend, and build prototypes around a predefined subject. These range from commercial Hackathons, organized by companies and aimed at attracting developers to their ecosystem, to social good Hackathons, organized with a specific social goal like improving breast pumps\cite{d2016feminist} or assisting rural communities\cite{hackforwestmass}.   
 
 The maker culture has also triggered the establishment of maker spaces. Maker spaces are physical spaces that serve specific communities by providing the infrastructure for developing software and hardware. These spaces vary in the equipment they possess, some have a single hobbyist 3d printer while others sport hundreds of thousands of dollars worth of equipment such as water-jet and laser cutters. They also vary in their economical model, some are subsidized by the host community or a corporation while other have a paid subscription model. A recent study show that there are around 1,400 maker spaces in the world as of 2016 and that number is growing rapidly\cite{makersbynumbers}.
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/setc-fablab.jpg}
+      \includegraphics[width=\textwidth]{figures/setc-fablab.jpg}
       \caption{The southend technology center is a small maker space located in the basement of a residential building in Boston, MA \cite{setc}}
       \label{fig_setc_class}
    \end{figure}
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/pier9.jpg}
+      \includegraphics[width=\textwidth]{figures/pier9.jpg}
       \caption{Pier 9 is a 12,000 square-foot maker space used by Autodesk employees and affiliates.\cite{pier9}}
       \label{fig_pier9}
    \end{figure}
@@ -48,8 +54,6 @@ The maker culture has also triggered the establishment of maker spaces. Maker sp
 \textit{This is How} is a crowdsourcing system for Brainstorming and Collaboration. It allows makers and nonprofits to exchange knowledge, ideas and skills, and collaborate towards problem solving. In this section I explore existing crowdsourcing systems and their various properties.
 
 In the heart of Crowdsourcing systems are three basic constructs: Initiators, Tasks and Participants. Initiators are organizations or representatives of organizations that publish Tasks which are then performed by Participants. 
-
-In this section focus on Crowdsourcing Systems 
 
 I present various examples of existing systems while characterizing these constructs. What is the motivation of initiators and who are the beneficiaries? How specific are these tasks and what level of skills do they requires? What is the nature of collaboration between participants, if any, and what is their motivation?
 
@@ -61,7 +65,10 @@ Simple Tasks Crowdsourcing systems are defined as ones where tasks are relativel
 
 Not all of these systems are driven by monetary transactions. Ushahidi is a crowd mapping service driven by social activism\cite{ushahidi}. Ushahidi enables local observers to send geo-tagged reports on incidents during major events. These incidents are plotted on a map accessible via the web and essentially create heat-maps for events. These are monitored by activists and relevant authorities which can act on them. The system has been used in incidents of natural disasters as well in conflict areas during elections. 
 
-These type of systems have also been used in the world of citizen science\cite{sauermann2015crowd}. Galaxy Zoo is one such system that distributes the task of classifying deep space imagery taken by telescopes\cite{galaxyzoo}. Galaxy Zoo utilizes the fact that human observation, with very little guidance, is superior to existing computer vision algorithms in classifying deep space imagery. Since it's inception in 2009, hundreds of millions of photos have been classified. 
+\marginpar {
+  \includegraphics[width=\marginparwidth]{figures/spiral-galaxy.jpg}
+  A spiral galaxy classified on Galaxy Zoo\cite{galaxyzoo} 
+} These type of systems have also been used in the world of citizen science\cite{sauermann2015crowd}. Galaxy Zoo is one such system that distributes the task of classifying deep space imagery taken by telescopes\cite{galaxyzoo}. Galaxy Zoo utilizes the fact that human observation, with very little guidance, is superior to existing computer vision algorithms in classifying deep space imagery. Since it's inception in 2009, hundreds of millions of photos have been classified. 
 
 \subsection{Bounty Based Crowdsourcing}
 
@@ -79,7 +86,10 @@ One of the earliest examples of such a system is ThinkCycle, founded in 2001 \ci
 
 Although ThinkCycle is not active anymore it inspired the birth of similar services. Quirky\cite{quirky} is one that is focused on home automation industry. Members can contribute to ongoing challenges and vote on the significance of contribution of other members. When a product is released all contributors share the profits according to their perceived contribution by the community. 
 
-Openideo\cite{openideo} attempts to utilize the same methodology while tackling global issues.  Their online challenges deal with issues ranging from combating the Zika virus to improving the livelihood of small scale farmers. 
+Openideo\cite{openideo} attempts to utilize the same methodology while tackling global issues.  Their online challenges deal with issues ranging from combating the Zika virus to improving the livelihood of small scale farmers. \marginpar {
+  \includegraphics[width=\marginparwidth]{figures/refuel.jpg}
+  Refuel - an internet connected propane tank gauge. developed on Quirky\cite{quirky} 
+}
 
 \subsection{Crowdsourcing Systems - Conclusion}
 
@@ -102,7 +112,7 @@ The first Hypermedia experience is often credited to be the Aspen Movie Map\cite
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/aspenmoviemap.png}
+      \includegraphics[width=\textwidth]{figures/aspenmoviemap.png}
       \caption{Andy Lippman demonstrating the Aspen Movie Map (1981)\cite{lippman1978aspen}}
       \label{fig_pier9}
    \end{figure}

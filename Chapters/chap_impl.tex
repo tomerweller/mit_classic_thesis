@@ -1,5 +1,5 @@
 \chapter{Design and Implementation}
-\label{chap_design}
+\label{chap_impl}
 
 This Chapter deals with the implementation of \textit{This is How} including Technology and User experience. It also includes a section dedicated to SuperGlue, the automatic metadata extraction system, including description and implementation, 
 
@@ -32,7 +32,7 @@ SuperGlue is an automatic metadata extractor that works with all forms of media:
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/wallofnow.png}
+      \includegraphics[width=\textwidth]{figures/wallofnow.png}
       \caption{Wall of Now\cite{wallofnow2016} is a project thats displays a digest of the last 24 hours of media from 20 different news channels, using metadata collected by SuperGlue.}
       \label{fig_wallofnow}
    \end{figure}
@@ -57,9 +57,6 @@ The Workers are the main work horse behind the system and are also implemented i
 All the data is stored in a single collection in a MongoDB database. Each record in this collection represents a single media item and all the output that's been gathered from the various modules is stored in it. 
 
 This architecture results in an ability to successfully scale horizontally. Workers, which are the main units of computation, are stateless and as such can be added and removed without affecting the system. SuperGlue is currently processing 500 hours worth of video in a day using 20 workers running on virtual machines.
-
-
-
 
 \section{User Experience Considerations} 
 
@@ -92,7 +89,7 @@ These concepts are used throughout the user experience. Concepts that are local 
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/mainpage.png}
+      \includegraphics[width=\textwidth]{figures/mainpage.png}
       \caption{This is How - Browsing/Filtering}
       \label{fig_main_page}
    \end{figure}
@@ -105,7 +102,7 @@ The main page also allows for filtering. A set of common tags is provided, by cl
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/addstory.png}
+      \includegraphics[width=\textwidth]{figures/addstory.png}
       \caption{This is How - Add Story}
       \label{fig_add_story}
    \end{figure}
@@ -116,7 +113,7 @@ The Add Story page provides the necessary mechanism for adding a story: uploadin
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/dashboard.png}
+      \includegraphics[width=\textwidth]{figures/dashboard.png}
       \caption{This is How - Dashboard}
       \label{fig_dashboard_page}
    \end{figure}
@@ -127,7 +124,7 @@ The Dashboard Page is unique per user and presents a collection of all of their 
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/storypage.png}
+      \includegraphics[width=\textwidth]{figures/storypage.png}
       \caption{This is How - Story Page}
       \label{fig_dashboard_page}
    \end{figure}
@@ -157,7 +154,7 @@ All of the comments are displayed as semi-transparent blocks on the seek bar and
 
    \begin{figure}[thpb]
       \centering
-      \includegraphics[width=4in]{figures/ideapad-collapsed.png}
+      \includegraphics[width=\textwidth]{figures/ideapad-collapsed.png}
       \caption{This is How - Idea Pad}
       \label{fig_comment_thread}
    \end{figure}
