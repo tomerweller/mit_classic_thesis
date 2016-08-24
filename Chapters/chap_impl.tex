@@ -28,7 +28,7 @@ Storage is divided into structured and unstructured data. The Structured data in
 The Webapp is currently stored on Heroku\cite{heroku}, a popular platform service that makes it simple to deploy new versions and scale up and down. However, the usage of open standards and technologies make it possible to migrate to other services or dedicated hardware as needed. 
 
 \section{SuperGlue - Automatic MetaData extraction}
-SuperGlue is an automatic metadata extractor that works with all forms of media: video, text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application. (see \autoref{fig_wallofnow})
+SuperGlue\cite{superglue} is an automatic metadata extractor that works with all forms of media: video, text and sound. It is a core project and an ongoing research effort at the Viral Communications group. The current iteration was developed by a team lead by myself and it serves as basis for exploration of media, mostly news, and enables a next generation of media-centered application. (see \autoref{fig_wallofnow})
 
    \begin{figure}[thpb]
       \centering
@@ -52,7 +52,7 @@ The task queue is implemented as a Redis database with one value: a simple order
 
 The Workers are the main work horse behind the system and are also implemented in Python. Modules are defined with python classes that adhere to a simple module api. As part of the definition, they can also declare dependencies on other modules. Whenever a worker is free, it polls the task queue for the next task. It then executes the relevant module on the relevant media item and stores the result in the database. Upon completion, it will detect which modules depend on the one that just completed, and will insert new tasks for all of them in the task queue. 
 
-<TODO: add an illustration of SuperGlue>
+% <TODO: add an illustration of SuperGlue>
 
 All the data is stored in a single collection in a MongoDB database. Each record in this collection represents a single media item and all the output that's been gathered from the various modules is stored in it. 
 
@@ -60,11 +60,22 @@ This architecture results in an ability to successfully scale horizontally. Work
 
 \section{User Experience Considerations} 
 
-\begin{quotation}
-``A user interface is like a joke, If you have to explain it, it's not that good.''
-\end{quotation}
 
-<TODO: add attribution "Jess Hamilton, Sr. UX/UI Designer at GoPro>
+%    \begin{quotation}
+%    ``A user interface is like a joke, If you have to explain it, it's not that good.''
+%    \end{quotation} 
+
+% \begin{right}
+%     --- Jess Hamilton, Sr. UX/UI Designer at GoPro \\ \medskip
+% \end{right}
+
+
+\begin{flushright}{ \slshape    
+    A user interface is like a joke, If you have to explain it, it's not that good.
+    } \\ \medskip
+    --- Jess Hamilton, Sr. UX/UI Designer at GoPro
+\end{flushright}
+
 
 The user experience of \textit{This is How} is based on the three-step process outlined in the previous chapter: discovery, interactive exposition and collaborative Brainstorming. It must be intuitive and rely mostly on common interaction patterns that users are already accustomed to. When introducing novel ideas they must be as self explanatory as possible. 
 
